@@ -21,8 +21,6 @@ __published:	// IDE-managed Components
         TLabel *answer;
         void __fastcall enterTextKeyDown(TObject *Sender, WORD &Key,
           TShiftState Shift);
-        void __fastcall ListBox1KeyDown(TObject *Sender, WORD &Key,
-          TShiftState Shift);
 private:
         int countAnswer(String str);	// User declarations
 public:		// User declarations

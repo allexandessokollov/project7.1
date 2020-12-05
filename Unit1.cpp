@@ -1,5 +1,3 @@
-//---------------------------------------------------------------------------
-
 #include <vcl.h>
 #pragma hdrstop
 
@@ -23,6 +21,12 @@ void __fastcall TForm1::enterTextKeyDown(TObject *Sender, WORD &Key,
         ListBox1->Items->Add("Your string:");
         ListBox1->Items->Add(enterText->Text);
         ListBox1->Items->Add("Press Enter to start count");
+
+
+        String str;
+        str =  enterText->Text;
+
+        answer->Caption = countAnswer(str);
     }
     
 }
@@ -63,20 +67,3 @@ int TForm1::countAnswer(String str)
     return counter;
 
 }
-void __fastcall TForm1::ListBox1KeyDown(TObject *Sender, WORD &Key,
-      TShiftState Shift)
-{
-
-    String str;
-
-
-    if(Key == 13)
-    {
-        str =  enterText->Text;
-
-        answer->Caption = countAnswer(str);
-    }
-
-    
-}
-//---------------------------------------------------------------------------

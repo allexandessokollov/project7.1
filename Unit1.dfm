@@ -49,7 +49,6 @@ object Form1: TForm1
     Columns = 1
     ItemHeight = 24
     TabOrder = 1
-    OnKeyDown = ListBox1KeyDown
   end
   object enterText: TEdit
     Left = 16
