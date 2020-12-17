@@ -20,8 +20,7 @@ void __fastcall TForm1::enterTextKeyDown(TObject *Sender, WORD &Key,
     {
         ListBox1->Items->Add("Your string:");
         ListBox1->Items->Add(enterText->Text);
-        ListBox1->Items->Add("counting...");
-
+        ListBox1->Items->Add("Counting...");
 
         String str;
         str =  enterText->Text;
@@ -32,45 +31,9 @@ void __fastcall TForm1::enterTextKeyDown(TObject *Sender, WORD &Key,
 }
 //---------------------------------------------------------------------------
 
- /*
-int TForm1::countAnswer(String str)
-{
 
-    str += " ";
-    int counter = 0, tmpCounter = 0, strLength = str.Length();
-
-   
-    const char *charArray = str.c_str();
-
-    for(int i = 0; i < strLength; i++)
-    {
-
-        if(charArray[i] == '1' || charArray[i] == '0')
-        {
-            tmpCounter++;
-        }
-        else if(charArray[i] == ' ')
-        {
-            if(tmpCounter == 5)
-            {
-                counter++;
-            }
-            tmpCounter = 0;
-        }
-        else
-        {
-            ShowMessage("unexpected symbol!");
-        }
-    }
-
-
-    return counter;
-
-}
-*/
 int TForm1::findQuantOfSequences(String str)
 {
-
     int counter = 0, lengthOfgroup = 0,
     strLength = str.Length(),
     expectedGroupLength = 5;

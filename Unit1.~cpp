@@ -20,7 +20,11 @@ void __fastcall TForm1::enterTextKeyDown(TObject *Sender, WORD &Key,
     {
         ListBox1->Items->Add("Your string:");
         ListBox1->Items->Add(enterText->Text);
+<<<<<<< HEAD
         ListBox1->Items->Add("counting...");
+=======
+        ListBox1->Items->Add("Counting...");
+>>>>>>> 987ca112f217c209b793a08b19b6d1b06b87e9f9
 
 
         String str;
