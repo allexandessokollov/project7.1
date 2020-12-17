@@ -22,7 +22,7 @@ __published:	// IDE-managed Components
         void __fastcall enterTextKeyDown(TObject *Sender, WORD &Key,
           TShiftState Shift);
 private:
-        int countAnswer(String str);	// User declarations
+        int findQuantOfSequences(String str);	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);
 };

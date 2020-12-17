@@ -30,7 +30,7 @@ object Form1: TForm1
   object answer: TLabel
     Left = 112
     Top = 320
-    Width = 193
+    Width = 6
     Height = 24
   end
   object close: TBitBtn

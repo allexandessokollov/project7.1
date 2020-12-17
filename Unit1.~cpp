@@ -20,19 +20,19 @@ void __fastcall TForm1::enterTextKeyDown(TObject *Sender, WORD &Key,
     {
         ListBox1->Items->Add("Your string:");
         ListBox1->Items->Add(enterText->Text);
-        ListBox1->Items->Add("Press Enter to start count");
+        ListBox1->Items->Add("counting...");
 
 
         String str;
         str =  enterText->Text;
 
-        answer->Caption = countAnswer(str);
+        answer->Caption = findQuantOfSequences(str);
     }
     
 }
 //---------------------------------------------------------------------------
 
-
+ /*
 int TForm1::countAnswer(String str)
 {
 
@@ -63,6 +63,45 @@ int TForm1::countAnswer(String str)
         }
     }
 
+
+    return counter;
+
+}
+*/
+int TForm1::findQuantOfSequences(String str)
+{
+
+    int counter = 0, lengthOfgroup = 0,
+    strLength = str.Length(),
+    expectedGroupLength = 5;
+
+    const char *chArr = str.c_str();
+
+    for(int i = 0; i < strLength; i++)
+    {
+
+        if(chArr[i] == '1' || chArr[i] == '0')
+        {
+            lengthOfgroup++;
+        }
+        else
+        {
+            if(lengthOfgroup == expectedGroupLength)
+            {
+                counter++;
+            }
+            lengthOfgroup = 0;
+        }
+
+        if(i == strLength - 1)
+        {
+            if(lengthOfgroup == expectedGroupLength)
+            {
+                counter++;
+            }
+            lengthOfgroup = 0;
+        }
+    }
 
     return counter;
 
