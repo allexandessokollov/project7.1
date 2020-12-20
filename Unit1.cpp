@@ -6,6 +6,9 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
+
+const int EXPECTED_GROUP_LEN = 5;
+
 TForm1 *Form1;
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
@@ -35,8 +38,7 @@ void __fastcall TForm1::enterTextKeyDown(TObject *Sender, WORD &Key,
 int TForm1::findQuantOfSequences(String str)
 {
     int counter = 0, lengthOfgroup = 0,
-    strLength = str.Length(),
-    expectedGroupLength = 5;
+    strLength = str.Length();
 
     const char *chArr = str.c_str();
 
@@ -49,23 +51,21 @@ int TForm1::findQuantOfSequences(String str)
         }
         else
         {
-            if(lengthOfgroup == expectedGroupLength)
+            if(lengthOfgroup == EXPECTED_GROUP_LEN)
             {
                 counter++;
             }
             lengthOfgroup = 0;
         }
 
-        if(i == strLength - 1)
-        {
-            if(lengthOfgroup == expectedGroupLength)
-            {
-                counter++;
-            }
-            lengthOfgroup = 0;
-        }
     }
 
+    if(lengthOfgroup == EXPECTED_GROUP_LEN)
+    {
+         counter++;
+    }
+    
     return counter;
 
 }
+

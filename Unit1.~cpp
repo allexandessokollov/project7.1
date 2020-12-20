@@ -6,6 +6,9 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
+
+const int EXPECTED_GROUP_LEN = 5;
+
 TForm1 *Form1;
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
@@ -20,12 +23,7 @@ void __fastcall TForm1::enterTextKeyDown(TObject *Sender, WORD &Key,
     {
         ListBox1->Items->Add("Your string:");
         ListBox1->Items->Add(enterText->Text);
-<<<<<<< HEAD
-        ListBox1->Items->Add("counting...");
-=======
         ListBox1->Items->Add("Counting...");
->>>>>>> 987ca112f217c209b793a08b19b6d1b06b87e9f9
-
 
         String str;
         str =  enterText->Text;
@@ -36,48 +34,11 @@ void __fastcall TForm1::enterTextKeyDown(TObject *Sender, WORD &Key,
 }
 //---------------------------------------------------------------------------
 
- /*
-int TForm1::countAnswer(String str)
-{
 
-    str += " ";
-    int counter = 0, tmpCounter = 0, strLength = str.Length();
-
-   
-    const char *charArray = str.c_str();
-
-    for(int i = 0; i < strLength; i++)
-    {
-
-        if(charArray[i] == '1' || charArray[i] == '0')
-        {
-            tmpCounter++;
-        }
-        else if(charArray[i] == ' ')
-        {
-            if(tmpCounter == 5)
-            {
-                counter++;
-            }
-            tmpCounter = 0;
-        }
-        else
-        {
-            ShowMessage("unexpected symbol!");
-        }
-    }
-
-
-    return counter;
-
-}
-*/
 int TForm1::findQuantOfSequences(String str)
 {
-
     int counter = 0, lengthOfgroup = 0,
-    strLength = str.Length(),
-    expectedGroupLength = 5;
+    strLength = str.Length();
 
     const char *chArr = str.c_str();
 
@@ -90,23 +51,21 @@ int TForm1::findQuantOfSequences(String str)
         }
         else
         {
-            if(lengthOfgroup == expectedGroupLength)
+            if(lengthOfgroup == EXPECTED_GROUP_LEN)
             {
                 counter++;
             }
             lengthOfgroup = 0;
         }
 
-        if(i == strLength - 1)
-        {
-            if(lengthOfgroup == expectedGroupLength)
-            {
-                counter++;
-            }
-            lengthOfgroup = 0;
-        }
     }
 
+    if(lengthOfgroup == EXPECTED_GROUP_LEN)
+    {
+         counter++;
+    }
+    
     return counter;
 
 }
+
